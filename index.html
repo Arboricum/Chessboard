@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test</title>
+    <style>
+        .chessBoard {
+            width: 400px;
+            height: 416px;
+            border: 1px solid black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .whiteBkgr {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            flex: 1 0 12.5%; 
+        }
+
+        .blackBkgr {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            flex: 1 0 12.5%; 
+        }
+    </style>
+</head>
+<body>
+    <div class="chessBoard"></div>
+    <script>
+        const chessBoard = document.querySelector('.chessBoard');
+
+        function createChessBoard() {
+            for (let i = 0; i < 8; i++) {
+                for (let j = 0; j < 8; j++) {
+                    const square = document.createElement('div');
+                    if ((i + j) % 2 === 0) {
+                        square.classList.add('whiteBkgr');
+                    } else {
+                        square.classList.add('blackBkgr');
+                    }
+                    chessBoard.appendChild(square);
+                }
+            }
+        }
+
+        createChessBoard();
+    </script>
+</body>
+</html>
